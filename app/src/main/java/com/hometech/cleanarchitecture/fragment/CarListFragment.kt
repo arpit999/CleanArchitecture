@@ -52,10 +52,11 @@ class CarListFragment : Fragment() {
                 is Response.Success -> {
                     binding.progressBar.visibility = View.INVISIBLE;
                     binding.apply {
-                        carListRecyclerView.adapter =
-                            it.data?.let { CarList -> CarListAdapter(context, CarList) }
-                        carListRecyclerView.layoutManager = LinearLayoutManager(context)
-                        carListRecyclerView.setHasFixedSize(true)
+                        it.data?.let { CarList ->
+                            carListRecyclerView.adapter = CarListAdapter(context, CarList)
+                            carListRecyclerView.layoutManager = LinearLayoutManager(context)
+                            carListRecyclerView.setHasFixedSize(true)
+                        }
                     }
                 }
             }
