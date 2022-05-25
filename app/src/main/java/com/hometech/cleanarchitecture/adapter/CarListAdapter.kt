@@ -1,12 +1,16 @@
 package com.hometech.cleanarchitecture.adapter
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.hometech.cleanarchitecture.R
 import com.hometech.cleanarchitecture.databinding.ListItemBinding
 import com.hometech.cleanarchitecture.pojo.CarList
+import com.squareup.picasso.Picasso
 
 class CarListAdapter(private val context: Context?, private val list: CarList) :
     RecyclerView.Adapter<CarListAdapter.ItemViewHolder>() {
@@ -20,13 +24,14 @@ class CarListAdapter(private val context: Context?, private val list: CarList) :
         ListItemBinding.bind(holder.itemView).apply {
             val carObject = list.listings[position]
             val imageUrl = carObject.images.firstPhoto.large
-            val car = "${carObject.year} ${carObject.make} ${carObject.model} ${carObject.trim}}"
-            val price_mileage = "\$${carObject.currentPrice} | ${carObject.mileage} mi"
+            val car = "${carObject.year} ${carObject.make} ${carObject.model} ${carObject.trim}"
+            val price_mileage = "\$ ${carObject.currentPrice} | ${carObject.mileage} mi"
             val location = "${carObject.dealer.city}, ${carObject.dealer.state}"
 
-            carNameTextview.text = car.toString()
-            priceMilageTextView.text = price_mileage.toString()
-            locationTextView.text = location.toString()
+            Picasso.get().load(imageUrl).placeholder(R.drawable.placeholder).into(carImageView)
+            carNameTextview.text = car
+            priceMilageTextView.text = price_mileage
+            locationTextView.text = location
 
         }
     }

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hometech.cleanarchitecture.pojo.CarList
+import com.hometech.cleanarchitecture.pojo.Listings
 import com.hometech.cleanarchitecture.repository.MainRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

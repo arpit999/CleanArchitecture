@@ -1,6 +1,7 @@
 package com.hometech.cleanarchitecture.cloud
 
 import com.hometech.cleanarchitecture.pojo.CarList
+import com.hometech.cleanarchitecture.pojo.Listings
 import retrofit2.Response
 import retrofit2.http.GET
 

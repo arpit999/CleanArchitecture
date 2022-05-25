@@ -44,10 +44,6 @@ class CarListFragment : Fragment() {
                 carListRecyclerView.adapter = CarListAdapter(context, it)
                 carListRecyclerView.layoutManager = LinearLayoutManager(context)
                 carListRecyclerView.setHasFixedSize(true)
-
-                it.listings.forEach {
-                    it.toString()
-                }
             }
         })
     }

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.hometech.cleanarchitecture.cloud.APIServices
 import com.hometech.cleanarchitecture.pojo.CarList
+import com.hometech.cleanarchitecture.pojo.Listings
 
 class MainRepository(private val apiServices: APIServices) {
 
