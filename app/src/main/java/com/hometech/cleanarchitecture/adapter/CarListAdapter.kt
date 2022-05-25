@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.hometech.cleanarchitecture.R
@@ -11,8 +12,9 @@ import com.hometech.cleanarchitecture.databinding.ListItemBinding
 import com.hometech.cleanarchitecture.pojo.CarList
 import com.squareup.picasso.Picasso
 
+
 class CarListAdapter(private val context: Context?, private val list: CarList) :
-    RecyclerView.Adapter<CarListAdapter.ItemViewHolder>(){
+    RecyclerView.Adapter<CarListAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ItemViewHolder(
         ListItemBinding.inflate(LayoutInflater.from(context), parent, false).root
@@ -35,6 +37,10 @@ class CarListAdapter(private val context: Context?, private val list: CarList) :
 
             cardView.setOnClickListener { view ->
                 view.findNavController().navigate(R.id.action_carListFragment_to_carDetailsFragment)
+            }
+
+            callDealerTextView.setOnClickListener {
+                Toast.makeText(context, "Call Dealer Clicked", Toast.LENGTH_SHORT).show()
             }
         }
     }
