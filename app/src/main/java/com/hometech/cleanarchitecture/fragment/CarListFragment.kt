@@ -40,17 +40,19 @@ class CarListFragment : Fragment() {
         mainViewModel =
             ViewModelProvider(this, MainViewModelFactory(mainRepository))[MainViewModel::class.java]
 
-        mainViewModel.carList.observe(viewLifecycleOwner, Observer {
-
+        mainViewModel.carList.observe(viewLifecycleOwner) {
             when (it) {
-                is ApiResponse.Error -> Toast.makeText(
-                    context,
-                    "Error: ${it.errorMessage}",
-                    Toast.LENGTH_SHORT
-                ).show()
+                is ApiResponse.Error -> {
+                    binding.progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(
+                        context,
+                        it.errorMessage,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
                 is ApiResponse.Loading -> binding.progressBar.visibility = View.VISIBLE
                 is ApiResponse.Success -> {
-                    binding.progressBar.visibility = View.INVISIBLE;
+                    binding.progressBar.visibility = View.INVISIBLE
                     binding.apply {
                         it.data?.let { CarList ->
                             carListRecyclerView.adapter = CarListAdapter(context, CarList)
@@ -61,7 +63,7 @@ class CarListFragment : Fragment() {
                 }
             }
 
-        })
+        }
     }
 
 
