@@ -1,8 +1,6 @@
 package com.hometech.cleanarchitecture.adapter
 
-import android.content.ContentValues.TAG
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +21,7 @@ class CarListAdapter(private val context: Context?, private val list: CarList) :
 
         ListItemBinding.bind(holder.itemView).apply {
             val carObject = list.listings[position]
+
             val imageUrl = carObject.images.firstPhoto.large
             val car = "${carObject.year} ${carObject.make} ${carObject.model} ${carObject.trim}"
             val price_mileage = "\$ ${carObject.currentPrice} | ${carObject.mileage} mi"

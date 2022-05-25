@@ -6,12 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.hometech.cleanarchitecture.pojo.CarList
 import com.hometech.cleanarchitecture.pojo.Listings
 import com.hometech.cleanarchitecture.repository.MainRepository
+import com.hometech.cleanarchitecture.utils.Response
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(mainRepository: MainRepository) : ViewModel() {
 
-    val carList: LiveData<CarList> = mainRepository.carList
+    val carList: LiveData<Response<CarList>> = mainRepository.carList
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
