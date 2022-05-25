@@ -1,22 +1,24 @@
 package com.hometech.cleanarchitecture.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hometech.cleanarchitecture.pojo.CarList
-import com.hometech.cleanarchitecture.pojo.Listings
 import com.hometech.cleanarchitecture.repository.MainRepository
-import com.hometech.cleanarchitecture.utils.Response
+import com.hometech.cleanarchitecture.utils.ApiResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(mainRepository: MainRepository) : ViewModel() {
 
-    val carList: LiveData<Response<CarList>> = mainRepository.carList
+    private val _carList: MutableLiveData<ApiResponse<CarList>> = MutableLiveData()
+
+    val carList: LiveData<ApiResponse<CarList>> get() = _carList
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            mainRepository.getCarList()
+            _carList.postValue(mainRepository.getCarList())
         }
     }
 

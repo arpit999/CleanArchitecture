@@ -14,7 +14,7 @@ import com.hometech.cleanarchitecture.repository.MainRepository
 import com.hometech.cleanarchitecture.cloud.APIServices
 import com.hometech.cleanarchitecture.cloud.RetrofitHelper
 import com.hometech.cleanarchitecture.databinding.FragmentCarListBinding
-import com.hometech.cleanarchitecture.utils.Response
+import com.hometech.cleanarchitecture.utils.ApiResponse
 import com.hometech.cleanarchitecture.viewmodel.MainViewModel
 import com.hometech.cleanarchitecture.viewmodel.MainViewModelFactory
 
@@ -43,13 +43,13 @@ class CarListFragment : Fragment() {
         mainViewModel.carList.observe(viewLifecycleOwner, Observer {
 
             when (it) {
-                is Response.Error -> Toast.makeText(
+                is ApiResponse.Error -> Toast.makeText(
                     context,
                     "Error: ${it.errorMessage}",
                     Toast.LENGTH_SHORT
                 ).show()
-                is Response.Loading -> binding.progressBar.visibility = View.VISIBLE
-                is Response.Success -> {
+                is ApiResponse.Loading -> binding.progressBar.visibility = View.VISIBLE
+                is ApiResponse.Success -> {
                     binding.progressBar.visibility = View.INVISIBLE;
                     binding.apply {
                         it.data?.let { CarList ->
