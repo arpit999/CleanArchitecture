@@ -9,17 +9,22 @@
         android:id="@+id/carListFragment"
         android:name="com.hometech.cleanarchitecture.fragment.CarListFragment"
         android:label="fragment_car_list"
-        tools:layout="@layout/fragment_car_list" >
+        tools:layout="@layout/fragment_car_list">
         <action
             android:id="@+id/action_carListFragment_to_carDetailsFragment"
-            app:destination="@id/carDetailsFragment" />
+            app:destination="@id/carDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/carDetailsFragment"
         android:name="com.hometech.cleanarchitecture.fragment.CarDetailsFragment"
         android:label="fragment_car_detail"
-        tools:layout="@layout/fragment_car_detail" >
-        <argument android:name="id"
+        tools:layout="@layout/fragment_car_detail">
+        <argument
+            android:name="id"
             app:argType="string" />
     </fragment>
 </navigation>
