@@ -18,5 +18,8 @@
         android:id="@+id/carDetailsFragment"
         android:name="com.hometech.cleanarchitecture.fragment.CarDetailsFragment"
         android:label="fragment_car_detail"
-        tools:layout="@layout/fragment_car_detail" />
+        tools:layout="@layout/fragment_car_detail" >
+        <argument android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>
