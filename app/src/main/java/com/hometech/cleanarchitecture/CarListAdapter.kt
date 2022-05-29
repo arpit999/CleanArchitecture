@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture.adapter
+package com.hometech.cleanarchitecture
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.hometech.cleanarchitecture.R
 import com.hometech.cleanarchitecture.databinding.ListItemBinding
 import com.hometech.cleanarchitecture.pojo.CarList
 import com.squareup.picasso.Picasso
+import retrofit2.Response
 
 class CarListAdapter(
-    private val context: Context?,
+    private val context: Context,
     private val list: CarList,
 ) :
     RecyclerView.Adapter<CarListAdapter.ItemViewHolder>() {
