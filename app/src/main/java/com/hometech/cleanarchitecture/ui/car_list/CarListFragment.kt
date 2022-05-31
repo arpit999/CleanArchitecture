@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture
+package com.hometech.cleanarchitecture.ui.car_list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hometech.cleanarchitecture.retrofit.APIServices
-import com.hometech.cleanarchitecture.retrofit.RetrofitHelper
+import com.hometech.cleanarchitecture.data.api.APIServices
+import com.hometech.cleanarchitecture.data.api.RetrofitHelper
 import com.hometech.cleanarchitecture.databinding.FragmentCarListBinding
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
@@ -31,7 +32,7 @@ class CarListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        GlobalScope.launch(Main) {
+        viewLifecycleOwner.lifecycleScope.launch(Main) {
 
             val result = apiServices.getCarList()
             if (result.body() != null) {
