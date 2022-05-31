@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture
+package com.hometech.cleanarchitecture.ui.car_list
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,10 +8,10 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.hometech.cleanarchitecture.R
 import com.hometech.cleanarchitecture.databinding.ListItemBinding
-import com.hometech.cleanarchitecture.pojo.CarList
+import com.hometech.cleanarchitecture.data.api.models.CarList
 import com.squareup.picasso.Picasso
-import retrofit2.Response
 
 class CarListAdapter(
     private val context: Context,

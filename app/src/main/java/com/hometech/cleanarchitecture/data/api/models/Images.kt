@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture.pojo
+package com.hometech.cleanarchitecture.data.api.models
 
 data class Images(
     val baseUrl: String,

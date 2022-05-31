@@ -44,8 +44,14 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
+    //ktx lifecycle
+    def ktx_lifecycle = "2.4.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktx_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$ktx_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$ktx_lifecycle"
+
     //Background task
-    def coroutines = "1.6.0"
+    def coroutines = "1.6.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
 
@@ -56,7 +62,7 @@ dependencies {
     //Image loading
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    //Network Calls
+    //Retrofit Network Calls
     def retrofit2 = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit2"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit2"

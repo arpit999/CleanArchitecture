@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture.pojo
+package com.hometech.cleanarchitecture.data.api.models
 
 data class Listings(
     val bodytype: String,

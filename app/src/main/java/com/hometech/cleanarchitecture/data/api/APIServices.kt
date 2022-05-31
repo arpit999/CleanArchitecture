@@ -1,6 +1,6 @@
-package com.hometech.cleanarchitecture.retrofit
+package com.hometech.cleanarchitecture.data.api
 
-import com.hometech.cleanarchitecture.pojo.CarList
+import com.hometech.cleanarchitecture.data.api.models.CarList
 import retrofit2.Response
 import retrofit2.http.GET
 
