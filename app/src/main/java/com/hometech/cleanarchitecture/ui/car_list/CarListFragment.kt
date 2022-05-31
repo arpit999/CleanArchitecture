@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture
+package com.hometech.cleanarchitecture.ui.car_list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hometech.cleanarchitecture.data.api.APIServices
 import com.hometech.cleanarchitecture.data.api.RetrofitHelper
 import com.hometech.cleanarchitecture.databinding.FragmentCarListBinding
-import com.hometech.cleanarchitecture.ui.car_list.CarListAdapter
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
 
