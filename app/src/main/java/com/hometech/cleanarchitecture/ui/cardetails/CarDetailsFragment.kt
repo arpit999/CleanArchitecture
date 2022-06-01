@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture.ui.car_details
+package com.hometech.cleanarchitecture.ui.cardetails
 
 import android.os.Bundle
 import android.view.LayoutInflater

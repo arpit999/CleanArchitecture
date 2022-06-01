@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture.ui.car_list
+package com.hometech.cleanarchitecture.ui.carlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,6 +19,7 @@ class CarListFragment : Fragment() {
     private lateinit var binding: FragmentCarListBinding
     private val apiServices: APIServices =
         RetrofitHelper.getInstance().create(APIServices::class.java)
+    private lateinit var carListJob: Job
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +33,7 @@ class CarListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewLifecycleOwner.lifecycleScope.launch(Main) {
+        carListJob = viewLifecycleOwner.lifecycleScope.launch(Main) {
 
             val result = apiServices.getCarList()
             if (result.body() != null) {
@@ -49,6 +50,11 @@ class CarListFragment : Fragment() {
 
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        carListJob.cancel()
     }
 
 

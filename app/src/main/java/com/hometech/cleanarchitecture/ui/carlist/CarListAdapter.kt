@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture.ui.car_list
+package com.hometech.cleanarchitecture.ui.carlist
 
 import android.content.Context
 import android.view.LayoutInflater
