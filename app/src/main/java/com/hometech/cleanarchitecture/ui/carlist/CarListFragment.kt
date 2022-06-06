@@ -8,18 +8,26 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hometech.cleanarchitecture.MyApplication
 import com.hometech.cleanarchitecture.data.api.APIServices
-import com.hometech.cleanarchitecture.data.api.RetrofitHelper
 import com.hometech.cleanarchitecture.databinding.FragmentCarListBinding
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
+import javax.inject.Inject
 
 class CarListFragment : Fragment() {
 
     private lateinit var binding: FragmentCarListBinding
-    private val apiServices: APIServices =
-        RetrofitHelper.getInstance().create(APIServices::class.java)
+
+    @Inject
+    lateinit var apiServices: APIServices
     private lateinit var carListJob: Job
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        (requireActivity().application as MyApplication).appComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
