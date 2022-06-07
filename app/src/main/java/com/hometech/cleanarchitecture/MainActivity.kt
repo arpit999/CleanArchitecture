@@ -1,4 +1,4 @@
-package com.hometech.cleanarchitecture.ui
+package com.hometech.cleanarchitecture
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
