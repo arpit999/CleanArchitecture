@@ -8,11 +8,11 @@
 
 
     <TextView
-        android:id="@+id/increment_textview"
+        android:id="@+id/fact_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="0"
+        android:text="This is Fact"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,12 +20,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/increment_button"
+        android:id="@+id/update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Increment"
+        android:text="update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/increment_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/fact_textview" />
 </androidx.constraintlayout.widget.ConstraintLayout>

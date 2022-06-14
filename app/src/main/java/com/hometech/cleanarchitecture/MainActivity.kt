@@ -16,19 +16,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mainViewModel = ViewModelProvider(this, MainViewModelFactory(10))[MainViewModel::class.java]
-
-        setText()
-
-        binding.incrementButton.setOnClickListener {
-            mainViewModel.incrementCounter()
-            setText()
-        }
 
     }
 
-    private fun setText() {
-        binding.incrementTextview.text = mainViewModel.count.toString()
-    }
 
 }
