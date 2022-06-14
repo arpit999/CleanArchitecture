@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
             mainViewModel.updateLiveData("This is another fact")
         }
 
-        mainViewModel.factsLiveData.observe(this, Observer {
+        mainViewModel.factsLiveData.observe(this) {
             binding.factTextview.text = it
-        })
+        }
 
     }
 
