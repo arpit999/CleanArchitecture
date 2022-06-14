@@ -2,9 +2,9 @@ package com.hometech.cleanarchitecture
 
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
+class MainViewModel(initialValue: Int) : ViewModel() {
 
-    var count: Int = 0
+    var count: Int = initialValue
 
     fun incrementCounter(): Int {
         count++
