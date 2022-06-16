@@ -17,15 +17,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        mainViewModel =
+            ViewModelProvider(this, MainViewModelFactory(application))[MainViewModel::class.java]
 
-        binding.updateButton.setOnClickListener {
-            mainViewModel.updateLiveData("This is another fact")
-        }
-
-        mainViewModel.factsLiveData.observe(this) {
-            binding.factTextview.text = it
-        }
 
     }
 
