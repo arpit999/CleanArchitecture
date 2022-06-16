@@ -1,0 +1,11 @@
+package com.hometech.cleanarchitecture.room
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+
+@Database (entities = [ContactDAO::class], version = 1)
+abstract class ContactDatabase:RoomDatabase() {
+
+    abstract fun contactDao() : ContactDAO
+
+}
