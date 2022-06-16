@@ -40,10 +40,8 @@ class MainViewModel(context: Application) : ViewModel() {
     }
 
     fun getContactList() {
-        viewModelScope.launch {
             contactMutableLiveData =
                 database.contactDao().getContactList() as MutableLiveData<List<Contact>>
-        }
     }
 
 

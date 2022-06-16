@@ -1,11 +1,12 @@
 package com.hometech.cleanarchitecture
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.Observer
+import android.widget.RadioButton
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.hometech.cleanarchitecture.databinding.ActivityMainBinding
+import com.hometech.cleanarchitecture.room.Contact
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +20,43 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel =
             ViewModelProvider(this, MainViewModelFactory(application))[MainViewModel::class.java]
+
+        mainViewModel.contactLiveData.observe(this) {
+
+            for (contact in it) {
+                binding.textViewContactList.text = contact.toString()
+            }
+        }
+
+
+        binding.buttonGo.setOnClickListener {
+
+            when (binding.radioGroup.checkedRadioButtonId) {
+                binding.radioButtonInsert.id -> {
+                    Toast.makeText(this, "Insert Selected", Toast.LENGTH_SHORT).show()
+                    binding.apply {
+                        mainViewModel.insertContact(
+                            Contact(
+                                0,
+                                name = editTextName.text.toString(),
+                                email = editTextEmail.text.toString(),
+                                phone = editTextPhone.text.toString()
+                            )
+                        )
+                    }
+                }
+                binding.radioButtonUpdate.id -> {
+                    Toast.makeText(this, "Update Selected", Toast.LENGTH_SHORT).show()
+
+                }
+                binding.radioButtonDelete.id -> {
+                    Toast.makeText(this, "Delete Selected", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
+//            mainViewModel.getContactList()
+        }
 
 
     }
