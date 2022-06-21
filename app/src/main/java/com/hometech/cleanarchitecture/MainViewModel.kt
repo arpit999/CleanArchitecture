@@ -19,29 +19,36 @@ class MainViewModel(context: Application) : ViewModel() {
 
     init {
         database = Room.databaseBuilder(context, ContactDatabase::class.java, "contactDB").build()
+        viewModelScope.launch {
+            getContactList()
+        }
     }
 
     fun insertContact(contact: Contact) {
         viewModelScope.launch {
             database.contactDao().insertContact(contact)
+            getContactList()
         }
     }
 
     fun updateContact(contact: Contact) {
         viewModelScope.launch {
             database.contactDao().updateContact(contact)
+            getContactList()
         }
     }
 
     fun deleteContact(contact: Contact) {
         viewModelScope.launch {
-            database.contactDao().updateContact(contact)
+            database.contactDao().deleteContact(contact)
+            getContactList()
         }
     }
 
-    fun getContactList() {
-            contactMutableLiveData =
-                database.contactDao().getContactList() as MutableLiveData<List<Contact>>
+    private fun getContactList() {
+        viewModelScope.launch {
+            contactMutableLiveData.postValue(database.contactDao().getContactList())
+        }
     }
 
 
